@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prototype</title>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="well">
+    <div class="btn-group">
+      <%= link_to 'add place', places_path, :class => 'btn btn-default' %>
+      <%= link_to 'add spots', spots_path, :class => 'btn btn-default' %>
+    </div>
+
+  </div>
+  <%= yield %>
+</div>  
+
+</body>
+</html>

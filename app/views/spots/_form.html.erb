@@ -1,0 +1,43 @@
+<div class="row">
+<%= form_for(@spot) do |f| %>
+  <div class="col-md-6">
+  <% if @spot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h2>
+
+      <ul>
+      <% @spot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+<%=  f.select(:place_id, options_for_select(@places.collect{ |u| [u.name, u.id] })) %>
+  </div>
+
+  <div class="field">
+    
+    <%= f.label :picture %><br>
+    <%= f.file_field :picture %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ </div>
+
+  <div class="col-md-6">
+    <%= image_tag @spot.picture_url  if @spot.picture_url %>
+  </div>   
+</div>  

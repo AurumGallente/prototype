@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Floor:</strong>
+  <%= @place.floor_count %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @place.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+<h5>Spots</h5>
+<div class="bg-info">
+  <% @place.spots.each do |spot| %>
+   <p><%= spot.name %></p>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
